@@ -1,8 +1,8 @@
-import sympy as sy
+iport sympy as sy
 import numpy as np
 from sympy.functions import sin,cos
 
-
+# Hello im a test comment
 # Define the variable and the function to approximate
 x = sy.Symbol('x')
 f = x*sy.exp(-x)
