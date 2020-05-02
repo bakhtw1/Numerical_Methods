@@ -1,4 +1,4 @@
-iport sympy as sy
+import sympy as sy
 import numpy as np
 from sympy.functions import sin,cos
 
