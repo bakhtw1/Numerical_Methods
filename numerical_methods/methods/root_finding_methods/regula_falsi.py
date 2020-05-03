@@ -11,9 +11,7 @@ def RegulaFalsi(function, start, end, tol, max_iter):
     c = 0
 
     while(sy.Abs(a-b) > tol and n < max_iter):
-        print('Here')
-        c = b - function.subs(x, b) * ((b - a)/( function.subs(x, b) - function.subs(x, a) ))
-        print(n, c)
+        c = sy.N(b - function.subs(x, b) * ((b - a)/( function.subs(x, b) - function.subs(x, a) )))
         
         if(function.subs(x, c) * function.subs(x, a) > 0):
             a = c
