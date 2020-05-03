@@ -1,5 +1,5 @@
 import sympy as sy
-import sys
+
 
 def GetBasisFunctions(point_data):
     x = sy.Symbol('x')
@@ -29,7 +29,3 @@ def LagrangeInterpolation(point_data):
         result = result + point_data[i][1]*basisFunctions[i]
 
     return result
-
-p = [(2,2),(3,-1),(5,10),(7,0),(5,-11),(10,17),(13, 45),(-10,-45)]
-
-print(LagrangeInterpolation(p))
