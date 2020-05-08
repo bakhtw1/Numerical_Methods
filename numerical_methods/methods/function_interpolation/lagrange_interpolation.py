@@ -1,5 +1,5 @@
 import sympy as sy
-
+import sys
 
 def GetBasisFunctions(point_data):
     x = sy.Symbol('x')
