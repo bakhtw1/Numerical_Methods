@@ -6,17 +6,60 @@
         <title>Index</title>
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
-
-        <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'fonts/Computer_Modern/Serif/cmun-serif.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jsxgraph.css' %}">
     </head>
 
     <body>
-        <p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-            Let $a $</p>
-        <!-- <script src="js/scripts.js"></script> -->
+        <div class="main">
+            <h1>Bisection Method</h1>
+            <p>
+                The \(\textbf{Bisection Method}\) is a simple method that tends to be slow, but will always work to find a root.
+            </p>
+            <p>
+                Suppose that we know that a function \(f(x)\) is continuous for \(x \in [a,b]\) and is such that \(f(a)\) and \(f(b)\) have opposite signs. Then
+                Intermediate Value Theorem tells us that there must exist a root somewhere in \((a,b)\).
+            </p>
+            <p>
+                Now, we don't know exactly what that root might be yet. But, we do have a range of values that we know must contain that root!
+                The main idea is this: Let's try to find a \(\textit{tighter range}\), and we will do it by repeatedly cutting the interval in half.
+            </p>
+            <p>
+                Let \(a_0 = a\) and \(b_0 = b\). Then we test the midpoint \(c = \frac{a_0 + b_0}{2}\): That is, check to see if f(c) is positive or negative
+            </p>
+            <p>
+                Logically one of three things must happen:
+                <ul>
+                    <li class="spaced">\(f(c)\) is the opposite sign of \(f(b_0)\)</li>
+                    <li class="spaced">\(f(c)\) is the opposite sign of \(f(a_0)\)</li>
+                    <li class="spaced">\(f(c)\) is actually equal to zero itself, and thus we have a root c and we are done. (This would be lucky!)</li>
+                </ul>
+            </p>
+            <p>
+                In the first two possibilities, define a new interval \([a_1,b_1]\) using \(c\) and whichever value of \(a\) and \(b\) is such that \(f\) at that value is the opposite
+                sign of \(f(c)\); it will necessarily be half the size of the one we started with. \(f\) will still satisfy the hypotheses for Intermediate Value Theorem on that smaller 
+                interval, and thus we know that a root must contained in it!
+            </p>
+        </div>
+
+        <div class="graph">
+            <div id="calculator"></div>
+        </div>
+        
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="{% static 'js/jsxgraphcore.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script>
+
     </body>
 
 </html>

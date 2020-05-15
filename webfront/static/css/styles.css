@@ -1,0 +1,32 @@
+body {
+    font-family: Computer Modern Serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 150%;
+}
+
+div.main {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+div.graph {
+    text-align: center;
+    height: 500px;
+}
+
+#calculator {
+    width: 600px;
+    height: 90%;
+    display: inline-block;
+}
+
+p {
+    line-height: 1.8;
+}
+
+li.spaced {
+    margin: 10px 0;
+}
